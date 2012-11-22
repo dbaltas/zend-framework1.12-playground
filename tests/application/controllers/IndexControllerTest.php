@@ -15,7 +15,7 @@ class IndexControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
         $urlParams = $this->urlizeOptions($params);
         $url = $this->url($urlParams);
         $this->dispatch($url);
-        
+
         // assertions
         $this->assertModule($urlParams['module']);
         $this->assertController($urlParams['controller']);
@@ -23,7 +23,15 @@ class IndexControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
         $this->assertQueryContentContains("div#welcome h3", "This is your project's main page");
     }
 
-
+    public function testHelloAction()
+    {
+        $params = array('action' => 'hello', 'controller' => 'Index', 'module' => 'default');
+        $urlParams = $this->urlizeOptions($params);
+        $url = $this->url($urlParams);
+        $this->dispatch($url);
+		$renderer = Zend_Controller_Action_HelperBroker::getStaticHelper('ViewRenderer');
+		$this->assertEquals('index/instead-of-hello.phtml', $renderer->getViewScript());
+    }
 }
 
 
