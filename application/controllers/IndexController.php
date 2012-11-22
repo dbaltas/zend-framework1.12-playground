@@ -15,7 +15,7 @@ class IndexController extends Zend_Controller_Action
 
 	public function helloAction()
 	{
-		$this->renderScript('index/instead-of-hello.phtml');
+		$this->render('instead-of-hello');
 	}
 }
 
