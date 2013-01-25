@@ -1,0 +1,12 @@
+{
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/tripsta/paratest.git"
+        }
+	],
+	"require": {
+	    "brianium/paratest": "dev-master"
+	}
+
+}
